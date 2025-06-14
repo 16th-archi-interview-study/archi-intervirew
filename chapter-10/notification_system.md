@@ -21,7 +21,7 @@
 - 여기서 iOS나 Android 같이 디바이스 종속적인 환경인 경우 알림 요청을 만들 때 device token 같은 고유 식별자가 추가로 필요하다.
 
 
-![third_party_service](/chapter-10/img/third_party_service.png)
+<img src="/chapter-10/img/third_party_service.png" alt="third_party_service" width="50%">
 
 
 
