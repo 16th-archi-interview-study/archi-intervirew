@@ -49,7 +49,7 @@
 3. 메시지 큐를 이용해 시스템 컴포넌트 사이에 강한 결합을 끊는다.
 
 
-![extended_arch](/chapter-10/img/extended_arch.png)
+<img src="/chapter-10/img/extended_arch.png" alt="extended_arch" width="80%">
 
 
 - 1부터 N까지의 서비스
