@@ -18,7 +18,7 @@
 - 새 포스팅은 친구의 뉴스 피드에도 전송
 
 
-<img src="/chapter-11/img/feed_post_v1.png" alt="feed_post" width="90%">
+<img src="/chapter-11/img/feed_post_v1.png" alt="feed_post" width="50%">
 
 
 - 사용자: 모바일 앱이나 브라우저에서 새 포스팅을 올리는 주체 `POST /v1/me/feed` API 호출
@@ -33,7 +33,7 @@
 - 책의 예시는 뉴스 피드에 모든 친구의 포스팅을 시간 역순으로 모아서 만든다고 가정했다.
 
 
-<img src="/chapter-11/img/feed_create_v1.png" alt="feed_create" width="90%">
+<img src="/chapter-11/img/feed_create_v1.png" alt="feed_create" width="50%">
 
 
 - 사용자: 뉴스 피드를 읽는 주체 `GET /v1/me/feed` API 호출
@@ -52,7 +52,7 @@
 - 웹 서버와 Fanout Service를 자세히 다룬다.
 
 
-<img src="/chapter-11/img/feed_post_v2.png" alt="feed_post" width="90%">
+<img src="/chapter-11/img/feed_post_v2.png" alt="feed_post" width="70%">
 
 
 #### 웹서버
@@ -83,7 +83,7 @@
 아래 설계에서 좀 더 자세히 표현할 수 있다.
 
 
-<img src="/chapter-11/img/fanout_service.png" alt="fanout_service" width="90%">
+<img src="/chapter-11/img/fanout_service.png" alt="fanout_service" width="50%">
 
 
 1. Graph DB 에서 친구 ID 목록을 가져온다. (Graph DB는 친구 관계나 친구 추천을 관리하기 적합)
@@ -99,7 +99,7 @@
 - 이미지, 비디오와 같은 미디어 콘텐츠는 CDN에 저장하여 빨리 읽을 수 있도록 한다.
 
 
-<img src="/chapter-11/img/feed_read.png" alt="fanout_service" width="90%">
+<img src="/chapter-11/img/feed_read.png" alt="fanout_service" width="50%">
 
 
 1. 사용자가 뉴스 피드 읽기 요청을 보낸다. `GET /v1/me/feed`
@@ -110,12 +110,12 @@
 6. 생성된 뉴스피드를 JSON 형태로 클라이언트에 보낸다. (클라이언트는 해당 피드를 렌더링함)
 
 
-> 위에서 제안한 뉴스피드 API 설계는 다음과 같다:
+> 책에서 제안한 뉴스피드 API 설계는 다음과 같다:
 > 
 > - 사용자 정보 캐시와 포스팅 캐시에서 각각 데이터를 조회한 뒤,
 > - 서버에서 완성된 형태의 JSON을 만들어 클라이언트에 전달한다.
 > 
-> 이 방식은 클라이언트 입장에서 편리하지만, 실제 서비스 환경에서는 클라이언트 책임 분리 수준, 플랫폼별 최적화 요구, 시스템 확장성 등의 이유로 다양한 설계가 존재하는 것 같다.
+> 이 방식은 클라이언트 입장에서 편리하지만, 실제 서비스 환경에서는 클라이언트 책임 분리 수준, 플랫폼별 최적화 요구, 시스템 확장성 등의 이유로 다양한 설계가 존재한다.
 > 반드시 책의 내용이 정답이라고 생각할 순 없는듯?
 > [+ 추가로 생각해보기](/chapter-11/newsfeed_system_extended.md)
 
@@ -128,14 +128,14 @@
 - 본 설계안의 경우, 캐시를 다섯 계층으로 나눈다.
 
 
-<img src="/chapter-11/img/cache_layer.png" alt="cache" width="80%">
+<img src="/chapter-11/img/cache_layer.png" alt="cache" width="50%">
 
 
-1. 뉴스 피드: 사용자별로 뉴스피드에 들어갈 Post ID 리스트 보관
-2. 콘텐츠: 포스팅 데이터 보관, 인기 콘텐츠는 따로 보관
-3. 소셜 그래프: 사용자 간 관계 정보 보관
+1. News Feed: 사용자별로 뉴스 피드에 들어갈 Post ID 리스트 보관
+2. Content: 포스팅 데이터 보관, 인기 콘텐츠는 따로 보관
+3. Social Graph: 사용자 간 관계 정보 보관 (Redis Set으로 `SISMEMBER`, `SINTER`, `SCARD` 등 연산 활용)
 4. Action: 좋아요, 답글, 기타 등 포스팅에 대한 사용자의 행위 관련 정보를 보관
-5. Counter: 좋아요 수, 응답 수, 팔로워 수, 팔로잉 수 등의 정보 보관 
+5. Counters: 좋아요 수, 응답 수, 팔로워 수, 팔로잉 수 등의 정보 보관 
 
 
 ---
