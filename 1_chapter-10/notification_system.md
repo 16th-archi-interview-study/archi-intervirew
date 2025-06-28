@@ -21,7 +21,7 @@
 - 여기서 iOS나 Android 같이 디바이스 종속적인 환경인 경우 알림 요청을 만들 때 device token 같은 고유 식별자가 추가로 필요하다.
 
 
-<img src="/chapter-10/img/third_party_service.png" alt="third_party_service" width="30%">
+<img src="/1_chapter-10/img/third_party_service.png" alt="third_party_service" width="30%">
 
 
 
@@ -49,7 +49,7 @@
 3. 메시지 큐를 이용해 시스템 컴포넌트 사이에 강한 결합을 끊는다.
 
 
-<img src="/chapter-10/img/extended_arch.png" alt="extended_arch" width="80%">
+<img src="/1_chapter-10/img/extended_arch.png" alt="extended_arch" width="80%">
 
 
 - 1부터 N까지의 서비스
@@ -101,7 +101,7 @@
 위 모든 조건들을 고려하여 만든 최종 설계안은 아래와 같다.
 
 
-![final](/chapter-10/img/final.png)
+![final](/1_chapter-10/img/final.png)
 
 
 ## 4. Summary

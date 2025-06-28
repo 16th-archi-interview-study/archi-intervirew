@@ -213,5 +213,5 @@
 
 ---
 
-## [데이터베이스 규모 확장](/chapter-01/1-2-database-scaling.md)
+## [데이터베이스 규모 확장](/1_chapter-01/1-2-database-scaling.md)
 
