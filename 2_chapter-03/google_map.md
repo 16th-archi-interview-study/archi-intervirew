@@ -200,7 +200,7 @@
 ### 재귀적인 경로 타일
 
 
-<img src="/2_chapter-03/img/recursive_path_tile.png" alt="recursive_path_tile" width="70%">
+<img src="/2_chapter-03/img/recursive_path_tile.png" alt="recursive_path_tile" width="40%">
 
 
 만약, 유저가 안내받은 경로 타일을 단순 List로 들고 있다고 가정하자.
