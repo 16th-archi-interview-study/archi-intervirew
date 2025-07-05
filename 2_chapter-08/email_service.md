@@ -122,7 +122,7 @@
 아래는 ElasticSearch를 활용했을 때의 설계도이다. `user_id` 를 파티션 키로 사용하여 같은 사용자의 이메일을 같은 노드에 묶어 놓는 것을 기본으로 한다.
 
 
-<img src="/2_chapter-08/img/email_search_arch.png" alt="arch-4" width="60%">
+<img src="/2_chapter-08/img/elastic_search_arch.png" alt="arch-4" width="60%">
 
 
 ---
