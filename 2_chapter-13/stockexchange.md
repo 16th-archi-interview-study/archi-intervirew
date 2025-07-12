@@ -91,16 +91,16 @@
 
 
 
-<img src="/2_chapter-13/img/monolith.png.png" alt="monolith" width="80%">
+<img src="/2_chapter-13/img/monolith.png" alt="monolith" width="80%">
 
 
-- mmap: “메모리 매핑(memory-mapped I/O)”을 위한 운영체제(주로 Unix/Linux)의 시스템 호출을 말한다.
+1. mmap: “메모리 매핑(memory-mapped I/O)”을 위한 운영체제(주로 Unix/Linux)의 시스템 호출을 말한다.
     - 파일(또는 디바이스)을 프로세스의 가상 메모리 공간에 그대로 mapping해서, 파일을 읽고 쓰는 작업을 일반적인 `read()` / `write()` 대신 메모리에 접근하듯이 하도록 만들어준다.
     - 기존 `read()` / `write()`는 매번 커널 호출이 필요하지만, mmap은 한 번 mapping 후 메모리 접근만으로 I/O가 가능하기 때문에 시스템 콜 호출이 감소하고 지연 시간이 절감 된다.
     - mmap으로 이벤트 로그 파일을 메모리에 바로 mapping 하여 별도 네트워크/IPC 채널을 거치지 않고 같은 프로세스(서버) 내에서 즉시 접근하고, 필요시 커널이 알아서 페이지를 디스크에 반영하기 때문에 영속성도 확보된다.
 
 
-- 애플리케이션 루프: 애플리케이션 루프의 주된 작업 실행 메커니즘은 `while` 순환문을 돌면서 본인의 실행 작업을 계속 polling 하는 것이다.
+2. 애플리케이션 루프: 애플리케이션 루프의 주된 작업 실행 메커니즘은 `while` 순환문을 돌면서 본인의 실행 작업을 계속 polling 하는 것이다.
     - 엄격한 시간 요건을 만족하기 위해 가장 중요한 작업만 순환문 안에서 처리한다.
     - CPU 효율성을 위해 단일 스레드로 구현하며, 특정 CPU 코어에 고정시켜 context switching이나 경합 없이 온전히 main 작업에만 할당한다.
 
